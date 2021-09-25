@@ -5,10 +5,10 @@ class Solution
     
     int search(int arr[] , int n , int low , int high ,int key)
     {
-        while(low<high)
+        while(low<high) // remember the conditon in this 
         {
             int mid = low + (high - low)/2;
-            if(arr[mid] >= key )
+            if(arr[mid] >= key )// and this one also
             {
                 high = mid;
             }
