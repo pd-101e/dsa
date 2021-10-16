@@ -71,3 +71,6 @@ public:
         return ans;
     }
 };
+
+
+https://leetcode.com/problems/remove-invalid-parentheses/discuss/1472074/C%2B%2B(Using-Stack-Backtracking-Approach)
