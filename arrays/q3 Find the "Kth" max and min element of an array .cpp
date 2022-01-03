@@ -56,3 +56,24 @@ class Solution{
         return -1;
     }
 };
+
+
+
+//by heap
+ int kthSmallest(int arr[], int l, int r, int k) {
+        //code here
+        int n = r-l+1;
+        if(k>n)
+        return -1;
+        priority_queue<int>pq;
+        for(int i = 0 ; i<n ; i++)
+        {
+            pq.push(arr[i]);
+            if(pq.size() > k)
+            {
+                pq.pop();
+            }
+        }
+        int ans = pq.top();
+        return ans;
+    }
