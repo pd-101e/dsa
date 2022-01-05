@@ -4,7 +4,10 @@ As in the given question, if it is not possible to split string then on that tim
 of count after the traversal of the complete string.
 */
 
-
+/*
+thought process they asked for the number of splits
+let's traverse the string and see how can we split , wheneve 0 and 1 count is equal we split and we increment the split count at that time;
+*/
 
 // C++ implementation of the approach
 #include <bits/stdc++.h>
