@@ -1,4 +1,36 @@
+// My approach: 
+class Solution
+{
+    public:
+    
+    bool util(Node *head) 
+    {
+        if (!head->next) {
+            head->data = (head->data+1)%10;
+            if (head->data) return false;
+            else return true;
+        }
+        if (util(head->next)) {
+            head->data = (head->data+1)%10;
+            if (head->data) return false;
+            else return true;
+        }
+        else return false;
+    }
+    Node* addOne (Node *head) {
+        if (util (head)) {
+            Node* newhead = new Node (1);
+            newhead->next = head;
+            head = newhead;
+        }
+        return head;
+    }
+};
 
+
+
+
+//approach 2
 /* 
 
 struct Node
