@@ -1,4 +1,4 @@
-struct Node
+/*struct Node
 {
     int data;
     struct Node* left;
