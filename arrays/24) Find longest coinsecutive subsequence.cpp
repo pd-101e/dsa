@@ -26,6 +26,42 @@ int findLongestConseqSubseq(int arr[], int n)
     return maxcount;
 }
 
+ public:
+    // arr[] : the input array
+    // N : size of the array arr[]
+    
+    //Function to return length of longest subsequence of consecutive integers.
+    int findLongestConseqSubseq(int arr[], int n)
+    {
+      //Your code here
+      unordered_map<int,bool>mp;
+      int maxvalue = -1;
+      
+      for(int i = 0 ; i<n ; i++)
+      {
+          maxvalue = max(maxvalue,arr[i]);
+          mp[arr[i]] = true;
+      
+      }
+      
+      int count = 0 ;
+      int res = 0 ;
+      for(int i = 0 ; i<=maxvalue ; i++)
+      {
+          if(mp[i])
+          {
+              count++;
+              res = max(res,count);
+          }
+          else {
+              count = 0 ;
+          }
+      }
+      return res;
+      
+    }
+};
+
 /*************************************************/
 
 class Solution{
