@@ -1,4 +1,5 @@
-
+T.C = O(n*h*h)
+    SC = O(height)
 /*
 struct Node 
 {
