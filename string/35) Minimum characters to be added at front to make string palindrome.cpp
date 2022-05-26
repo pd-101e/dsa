@@ -43,3 +43,47 @@ public:
         return n-m;
     }
 };
+
+// method 2 by lps accepted solution
+int solve(string str )
+{
+    int n = str.length();
+    int lps[n] ;
+    lps[0] = 0;
+    int i = 1;
+    int j = 0 ;
+    while(i< n)
+    {
+        if(str[i] == str[j])
+        {
+            lps[i] = j+1;
+            i++;
+            j++;
+        }
+        else if(j!=0)
+        {
+            j = lps[j-1];
+        }
+        else {
+            lps[i] = 0;
+            i++;
+        }
+    }
+    return lps[n-1];
+}
+
+    int minChar(string str){
+        //Write your code here
+        
+        string str2 = str;
+        reverse(str2.begin(),str2.end());
+      string concat = str + string(1,'$') + str2;
+      
+      int n = str.length();
+      int m = solve(concat);
+      return n -m ;
+        
+        
+        
+    }
+
