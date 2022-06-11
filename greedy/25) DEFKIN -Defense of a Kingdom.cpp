@@ -1,3 +1,10 @@
+/*
+From what i understood, the rectangle will be formed by making of the grey lines, i.e even if the first one and second 
+piece had only one row between them and 8 columns between them, imagine gray lines going from both of those positions to the 
+end of the whole diagram and since the rectangle created by the grey lines and not those pieces it will be formed by either two
+pieces or a piece and a wall, thus the maximum length and maximum width will form at least one rectangle, if that makes sense.
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
