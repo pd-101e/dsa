@@ -1,3 +1,47 @@
+//leetcode
+class Solution {
+public:
+    
+    vector<string>res;
+    
+    void solve(int index , unordered_set<string>&hash , string &s , string ans )
+{
+    if(index == s.length())
+    {
+        ans.pop_back();
+        res.push_back(ans);
+        return;
+    }
+    
+    for(int i = index; i<s.length(); i++)
+    {
+        string word = s.substr(index,i - index + 1);
+        
+        if(hash.count(word) == 1)
+        {
+            solve(i + 1,hash , s, ans + word + " ");
+        }
+        
+    }
+    return;
+    
+}
+    
+    vector<string> wordBreak(string s, vector<string>& dict) {
+        unordered_set<string>hash;
+        for(int i = 0 ; i<dict.size() ;i++)
+        {
+            hash.insert(dict[i]);
+        }
+        
+        string ans = "";
+        solve(0,hash,s,ans);
+        return res;
+    }
+};
+
+
+//----------------
 class Solution{
 public:
 
