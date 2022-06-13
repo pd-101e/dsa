@@ -64,7 +64,7 @@ public:
         return st.size();
     }
     vector<string> removeInvalidParentheses(string s) {
-        int mra = getmin(s);
+        int mra = getmin(s); // minimum removals
         
         removeinvalid(mra,s);
         
