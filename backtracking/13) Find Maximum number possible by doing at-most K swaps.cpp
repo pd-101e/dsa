@@ -35,3 +35,32 @@ string Solution::solve(string A, int B) {
 
 
 // accepted in geeks for geeks 
+class Solution
+{
+    public:
+    //Function to find the largest number after k swaps.
+    
+    
+    void findMax(string str, int k, int i, string &ans){
+        if(i == str.size() - 1 || k == 0){
+            if(ans < str){
+                ans = str;
+            }
+            return; 
+        }
+        for(int j = i + 1; j < str.size(); j++){
+            if(str[j] > str[i]){
+                swap(str[i], str[j]);
+                findMax(str, k - 1, i + 1, ans);
+                swap(str[i], str[j]);
+            }
+        }
+        findMax(str, k, i + 1, ans);
+    }
+    string findMaximumNum(string str, int k)
+    {  
+        string ans = str;
+        findMax(str, k, 0, ans);
+        return ans;
+    }
+};
