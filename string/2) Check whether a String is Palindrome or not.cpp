@@ -20,3 +20,20 @@ public:
 	}
 
 };
+//***********************************************************************************88
+class Solution{
+public:	
+	
+	
+	int isPalindrome(string S)
+	{
+	    // Your code goes here
+	    string s = S;
+	    reverse(s.begin(),s.end());
+	    
+	    return s == S;
+	    
+	    
+	}
+
+};
