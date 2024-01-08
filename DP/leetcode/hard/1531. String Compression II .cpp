@@ -83,7 +83,89 @@ public:
 /*******************************************************************8
 Approach two bottom up/ tabulation
 */
+/*
+Memo to tabulation 
 
+idea to write tabulation 
+idea 1....
+after coparing from the memo code or recursive code ...
+we get idea for tabulation to include i + 1 in tabulation we start i from n -> 0; this result to add dp[i+1][]
+
+we get idea for tabulation to include j - 1 in tabulation we start k form 0 -> k; this result to write code in tabulation as dp[i+1][j-1]
+for better understaning compare tabulation(bottom up) with memo(top - down);
+
+code plan 
+
+memo 
+i = 0 to n;
+k = k to 0;
+
+as tabulation is bottom up approach we 
+
+start i from n -> 0;
+k form 0 -> k;
+
+answer will be stored in dp[0][k] means dp[0] = number of n characters 
+dp[k] =  for n deletion ,
+*/
+
+class Solution {
+public:
+
+        int countlen(int count)
+        {
+             // suppose a is coming 9 times , so we write a9 - length(a9) = 2
+        // count>=10 - suppose 15 times , so length(a15) string = 3
+            if(count == 1)
+            {
+                return 1;
+            }
+            else if(count <10)
+            {
+                return 2;
+            }
+            else if(count < 100)
+            {
+                return 3;
+            }
+            else 
+            return 4;
+        }
+
+    int getLengthOfOptimalCompression(string s, int k) {
+        
+        int n = s.length();
+        vector<vector<int>>dp(n+1, vector<int>(k+1,INT_MAX - n));
+        for(int i = n ; i >= 0 ; i--)
+        {
+            for(int j = 0 ; j<=k ; j++)
+            {
+                if(i == n ) // base condition 
+                {dp[i][j] = 0; // dp[n][j] = 0 ; because as we are starting i from n to 0 base case should be added at i ==n as string is break in subProblem from last and i == n means 0 characters in string for any deletion alway give min length 0
+                continue;
+                }
+                if(j>0) // check added so that j-1 not get in negative
+                dp[i][j] = dp[i+1][j-1];
+                
+                int same = 0 , del = 0 , length = 0 ;
+                for(int end = i ; end<n; end++)
+                {
+                    // as we are ignoring the i == n time loop so se have just done s[i] no s[i-1]
+                    if(s[i] == s[end])
+                    {
+                        same++;
+                    }
+                    else del++;
+                    if(j-del>=0) // to check j-del never be negative
+                    dp[i][j] =  min(dp[i][j], countlen(same) + dp[end + 1][j - del] );
+                }
+
+
+            }
+        }
+        return dp[0][k];
+    }
+};
 
 /*
 https://leetcode.com/problems/string-compression-ii/solutions/4468931/leetcode-daily-problem-very-easily-explained-optimized-c-java/?envType=daily-question&envId=2023-12-28
