@@ -20,7 +20,7 @@ Constraints:
 0 <= k <= s.length
 s contains only lowercase English letters.
 */
-
+// approach one 
 // by memo / top down 
 class Solution {
 public:
@@ -80,8 +80,17 @@ public:
     }
 };
 
+/*******************************************************************8
+Approach two bottom up/ tabulation
+*/
+
+
 /*
 https://leetcode.com/problems/string-compression-ii/solutions/4468931/leetcode-daily-problem-very-easily-explained-optimized-c-java/?envType=daily-question&envId=2023-12-28
 
 https://leetcode.com/problems/string-compression-ii/solutions/4469055/2-dimensional-dp-c-java-python-javascript-golang/?envType=daily-question&envId=2023-12-28
 */
+
+
+
+
